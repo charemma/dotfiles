@@ -1,0 +1,59 @@
+[preview]
+tab_size        = 2
+max_width       = 1600
+max_height      = 1900
+cache_dir       = ""
+image_filter    = "triangle"
+image_quality   = 75
+sixel_fraction  = 15
+ueberzug_scale  = 1
+ueberzug_offset = [ 0, 0, 0, 0 ]
+previewer = "kitty"
+
+
+# ya pack -a Reledia/glow
+# ya pack -a Reledia/miller
+# ya pack -a Reledia/hexyl
+[plugin]
+prepend_previewers = [
+  { mime = "text/csv", run = "miller"},
+  { name = "*.md", run = "glow" },
+]
+
+append_previewers = [
+  { name = "*", run = "hexyl" },
+]
+
+[opener]
+pdff = [
+  { run = 'zathura "$@"', desc = "zathura", block = false, for = "linux" },
+  { run = 'pdfarranger "$@"', desc = "PDF Arranger", block = false, for = "linux" },
+]
+videof = [
+  { run = 'mpv "$@"', desc = "Mpv", block = false, for = "unix" },
+  { run = 'mplayer "$@"', desc = "Mplayer", block=false, for = "linux" },
+]
+open = [
+   { run = 'kitty -e glow "$@"', desc = "Glow", block=false, for = "unix" },
+]
+
+
+[open]
+rules = [
+  { mime = "application/pdf", use = [ "pdff", "reveal" ] },
+  { mime = "video/*", use = "videof" },
+]
+prepend_rules = [
+  { name = "*.md", use = ["open", "edit", "reveal"] },
+]
+
+
+[flavor]
+dark = "catppuccin-frappe"
+light = "catppuccin-latte"
+
+
+[pick]
+open_title  = "Open with:"
+open_origin = "hovered"
+open_offset = [ 0, 1, 50, 7 ]

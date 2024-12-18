@@ -1,0 +1,61 @@
+{{ if eq .chezmoi.os "darwin" }}
+alias ffsearch="/Applications/Firefox.app/Contents/MacOS/firefox -new-tab --search"
+export CLIPBOARD_CLI=pbcopy
+export BREW_PATH=/opt/homebrew
+{{ else if eq .chezmoi.os "linux" }}
+export CLIPBOARD_CLI=xclip
+export BREW_PATH=/home/linuxbrew/.linuxbrew
+{{ else }}
+# other OS
+{{ end }}
+
+export CLICOLOR=1
+
+if [ -d ~/.cargo/bin ]; then
+  export PATH=~/.cargo/bin:$PATH
+fi
+if [ -d $HOME/.local/bin ]; then
+  export PATH=$HOME/.local/bin:$PATH
+fi
+
+eval "$(${BREW_PATH}/bin/brew shellenv)"
+
+_direnv_hook() {
+  trap -- '' SIGINT
+  eval "$("${BREW_PATH}/bin/direnv" export zsh)"
+  trap - SIGINT
+}
+
+typeset -ag precmd_functions
+if (( ! ${precmd_functions[(I)_direnv_hook]} )); then
+  precmd_functions=(_direnv_hook $precmd_functions)
+fi
+typeset -ag chpwd_functions
+if (( ! ${chpwd_functions[(I)_direnv_hook]} )); then
+  chpwd_functions=(_direnv_hook $chpwd_functions)
+fi
+
+alias cw='echo CW$(curl -s http://worldtimeapi.org/api/timezone/Europe/Berlin | jq -M .week_number)'
+alias cat=bat
+alias t="todo.sh"
+alias gitup='git pull --all ; git fetch ; git fetch -p ; git fetch --prune --prune-tags'
+
+alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#babbf1,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
+--color=selected-bg:#51576d \
+--multi"
+export FZF_DEFAULT_COMMAND="fd  --type f --exclude .git --ignore-file .gitignore"
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+
+alias vim=nvim
+alias vi=nvim
+export EDITOR=nvim
+
+alias ls='lsd --icon=never'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree --icon=auto --depth=4'
