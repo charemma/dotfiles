@@ -1,4 +1,3 @@
-[general]
 import = [
     "~/.config/alacritty/catppuccin-frappe.toml",
 ]
@@ -15,12 +14,14 @@ cursor = "CellForeground"
 text = "CellBackground"
 
 [font]
+{{ if eq .chezmoi.os "darwin" }}
 size = 14
+{{ else }}
+size = 12
 
 [font.bold]
 family = "Hack Nerd Font Mono"
 
 [font.normal]
 family = "Hack Nerd Font Mono"
-
 
