@@ -1,6 +1,6 @@
 export CLICOLOR=1
 
-PLAN9=/Users/charemma/plan9
+PLAN9=$HOME/plan9
 export PLAN9
 
 PATH=$PATH:$PLAN9/bin:$PLAN9/acme/bin:/Users/charemma/projects/tmux-cssh:$HOME/go/bin:$HOME/bin
@@ -13,7 +13,6 @@ PATH=~/.cargo/bin:$PATH
 export PATH
 
 export EDITOR=nvim
-
 
 {{ if eq .chezmoi.os "darwin" }}
 alias ffsearch="/Applications/Firefox.app/Contents/MacOS/firefox -new-tab --search"
