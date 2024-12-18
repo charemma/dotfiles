@@ -28,7 +28,6 @@ eval "$(${BREW_PATH}/bin/brew shellenv)"
 
 alias wn="echo wn$(curl -s http://worldtimeapi.org/api/timezone/Europe/Berlin | jq -M .week_number)"
 
-alias bat="bat -p --theme 'Solarized (light)'"
 alias cat=bat
 alias t="todo.sh"
 alias gitup='git pull --all ; git fetch ; git fetch -p ; git fetch --prune --prune-tags'
