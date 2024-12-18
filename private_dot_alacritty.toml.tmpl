@@ -1,0 +1,29 @@
+[general]
+import = [
+    "~/.config/alacritty/catppuccin-frappe.toml",
+]
+
+[window]
+dynamic_title = true
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[font]
+{{ if eq .chezmoi.os "darwin" }}
+size = 14
+{{ else }}
+size = 12
+{{ end }}
+
+[font.bold]
+family = "Hack Nerd Font Mono"
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+
