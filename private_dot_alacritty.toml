@@ -1,0 +1,26 @@
+[general]
+import = [
+    "~/.config/alacritty/catppuccin-frappe.toml",
+]
+
+[window]
+dynamic_title = true
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[font]
+size = 14
+
+[font.bold]
+family = "Hack Nerd Font Mono"
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+
+
