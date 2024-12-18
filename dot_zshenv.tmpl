@@ -13,15 +13,18 @@ PATH=~/.cargo/bin:$PATH
 export PATH
 
 export EDITOR=nvim
-
 {{ if eq .chezmoi.os "darwin" }}
 alias ffsearch="/Applications/Firefox.app/Contents/MacOS/firefox -new-tab --search"
 export CLIPBOARD_CLI=pbcopy
+export BREW_PATH=/opt/homebrew
 {{ else if eq .chezmoi.os "linux" }}
 export CLIPBOARD_CLI=xclip
+export BREW_PATH=/home/linuxbrew/.linuxbrew/bin
 {{ else }}
 # other OS
 {{ end }}
+
+eval "$(${BREW_PATH}/bin/brew shellenv)"
 
 alias wn="echo wn$(curl -s http://worldtimeapi.org/api/timezone/Europe/Berlin | jq -M .week_number)"
 
