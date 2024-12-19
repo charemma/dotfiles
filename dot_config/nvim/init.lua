@@ -387,8 +387,24 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
+        --
+        --
         -- pickers = {}
+        pickers = {
+          live_grep = {
+            file_ignore_patterns = { '.git/', '.direnv', '.venv' },
+            additional_args = function(_)
+              return { '--hidden' }
+            end,
+          },
+          find_files = {
+            file_ignore_patterns = { '.git/', '.direnv', '.venv' },
+            hidden = true,
+          },
+        },
+
         extensions = {
+          'fzf',
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
