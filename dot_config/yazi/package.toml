@@ -1,0 +1,12 @@
+[[plugin.deps]]
+use = "Reledia/hexyl"
+rev = "39d3d4e"
+hash = "dd624cbaff94af65f39fd86bc57b340"
+
+[[plugin.deps]]
+use = "Reledia/miller"
+rev = "40e0265"
+hash = "2d6d77583162aaf0a599e7a3091b5878"
+
+[flavor]
+deps = []

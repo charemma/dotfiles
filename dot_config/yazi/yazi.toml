@@ -1,0 +1,42 @@
+[preview]
+tab_size        = 2
+max_width       = 1600
+max_height      = 1900
+cache_dir       = ""
+image_filter    = "triangle"
+image_quality   = 75
+sixel_fraction  = 15
+ueberzug_scale  = 1
+ueberzug_offset = [ 0, 0, 0, 0 ]
+
+[plugin]
+prepend_previewers = [
+  { mime = "text/csv", run = "miller"},
+]
+
+append_previewers = [
+  { name = "*", run = "hexyl" },
+]
+
+
+[opener]
+pdff = [
+  { run = 'zathura "$@"', desc = "zathura", block = true, for = "linux" },
+  { run = 'pdfarranger "$@"', desc = "PDF Arranger", block = true, for = "linux" },
+]
+
+[open]
+rules = [
+  {mime = "application/pdf", use = [ "pdff", "reveal" ] },
+]
+
+
+[flavor]
+dark = "catppuccin-frappe"
+light = "catppuccin-latte"
+
+
+[pick]
+open_title  = "Open with:"
+open_origin = "hovered"
+open_offset = [ 0, 1, 50, 7 ]
