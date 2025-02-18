@@ -29,6 +29,8 @@ font pango:Hack Nerd Font Mono 11
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+exec --no-startup-id feh --no-fehbg --bg-center '/home/charemma/Pictures/Wallpapers/background.png'
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -170,6 +172,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym Ctrl+Mod1+Shift+Left move container to workspace prev ; workspace prev
 bindsym Ctrl+Mod1+Shift+Right move container to workspace next ; workspace next
 
+
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -202,8 +205,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
-# for_window [class="Pavucontrol"] floating enable, resize set 800 1200
 
 ## Cattpuccin Frappe
 set $rosewater #f2d5cf
@@ -269,6 +270,8 @@ client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
+
+
 # set aps inner all set 20
 #set gaps smart_gaps off
 
@@ -276,7 +279,7 @@ client.background        $base
 # Standard-Gaps für alle Workspaces
 gaps inner 12
 gaps outer 8
-gaps top 30
+gaps top 40
 
 # Emulate BenQ 24 inch
 # workspace 2 gaps inner 10
@@ -300,14 +303,3 @@ exec --no-startup-id export GDK_SCALE=1
 #exec --no-startup-id export QT_AUTO_SCREEN_SCALE_FACTOR=0
 #exec --no-startup-id export QT_SCALE_FACTOR=1.5
 exec --no-startup-id export QT_FONT_DPI=144 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
