@@ -29,7 +29,7 @@ font pango:Hack Nerd Font Mono 11
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id feh --no-fehbg --bg-center '/home/charemma/Pictures/Wallpapers/background.png'
+exec --no-startup-id ~/.fehbg 
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
