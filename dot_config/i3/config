@@ -29,7 +29,9 @@ font pango:Hack Nerd Font Mono 11
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id ~/.fehbg 
+# exec --no-startup-id ~/.fehbg
+exec --no-startup-id feh --no-fehbg --bg-center ~/Pictures/Wallpapers/background.png
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -271,15 +273,10 @@ client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 
-
-# set aps inner all set 20
-#set gaps smart_gaps off
-
 # Settings fuer normale Monitorposition
 # Standard-Gaps für alle Workspaces
 gaps inner 12
-gaps outer 8
-gaps top 40
+gaps top 30
 
 # Emulate BenQ 24 inch
 # workspace 2 gaps inner 10
