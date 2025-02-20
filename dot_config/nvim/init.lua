@@ -396,10 +396,12 @@ require('lazy').setup({
             additional_args = function(_)
               return { '--hidden' }
             end,
+            theme = 'ivy',
           },
           find_files = {
             file_ignore_patterns = { '.git/', '.direnv', '.venv' },
             hidden = true,
+            theme = 'ivy',
           },
         },
 
@@ -880,8 +882,8 @@ require('lazy').setup({
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       -- vim.cmd.colorscheme 'tokyonight-night'
       -- vim.cmd.colorscheme 'everforest'
-      -- vim.cmd.colorscheme 'catppuccin-frappe'
-      vim.cmd.colorscheme 'catppuccin-latte'
+      vim.cmd.colorscheme 'catppuccin-frappe'
+      -- vim.cmd.colorscheme 'catppuccin-latte'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
