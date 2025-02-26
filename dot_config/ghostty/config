@@ -3,6 +3,7 @@ theme = catppuccin-frappe
 font-size = 12
 mouse-hide-while-typing = true
 quit-after-last-window-closed=true
+confirm-close-surface = false
 # window-decoration = true
 gtk-titlebar = false
 # background-opacity = 0.55
