@@ -27,7 +27,8 @@ pdff = [
 
 [open]
 rules = [
-  {mime = "application/pdf", use = [ "pdff", "reveal" ] },
+  { mime = "application/pdf", use = [ "pdff", "reveal" ] },
+  { mime = "video/*", use = "play" },
 ]
 
 

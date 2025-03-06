@@ -49,10 +49,15 @@ exec --no-startup-id dunst
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
-bindsym F12 exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_0c_00.1.hdmi-stereo +10%
-bindsym F11 exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_0c_00.1.hdmi-stereo -10%
-bindsym F10 exec --no-startup-id pactl set-sink-mute   alsa_output.pci-0000_0c_00.1.hdmi-stereo toggle
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym F7 exec --no-startup-id exec playerctl previous
+bindsym F8 exec --no-startup-id exec playerctl play-pause
+bindsym F9 exec --no-startup-id exec playerctl next
+
+bindsym F12 exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym F11 exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym F10 exec --no-startup-id pactl set-sink-mute 0 toggle
+
+bindsym Print exec --no-startup-id flameshot gui
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -60,7 +65,6 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec "ghostty"
-bindsym $mod+Shift+Return exec "alacritty -e tmux -2"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -125,8 +129,6 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 bindsym $mod+Shift+v exec --no-startup-id "pavucontrol"
-
-bindsym $mod+Shift+p exec --no-startup-id "gnome-pomodoro"
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -236,34 +238,6 @@ set $base #303446
 set $mantle #292c3c
 set $crust #232634
 
-## Catppuccin Latte
-# set $rosewater #dc8a78
-# set $flamingo #dd7878
-# set $pink #ea76cb
-# set $mauve #8839ef
-# set $red #d20f39
-# set $maroon #e64553
-# set $peach #fe640b
-# set $yellow #df8e1d
-# set $green #40a02b
-# set $teal #179299
-# set $sky #04a5e5
-# set $sapphire #209fb5
-# set $blue #1e66f5
-# set $lavender #7287fd
-# set $text #4c4f69
-# set $subtext1 #5c5f77
-# set $subtext0 #6c6f85
-# set $overlay2 #7c7f93
-# set $overlay1 #8c8fa1
-# set $overlay0 #9ca0b0
-# set $surface2 #acb0be
-# set $surface1 #bcc0cc
-# set $surface0 #ccd0da
-# set $base #eff1f5
-# set $mantle #e6e9ef
-# set $crust #dce0e8
-
 # target                 title     bg    text   indicator  border
 client.focused           $lavender $base $text  $rosewater $lavender
 client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
@@ -271,7 +245,6 @@ client.unfocused         $overlay0 $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
-
 
 # Settings fuer normale Monitorposition
 # Standard-Gaps für alle Workspaces
@@ -299,4 +272,4 @@ exec --no-startup-id export GDK_SCALE=1
 #exec --no-startup-id export GDK_DPI_SCALE=1.5
 #exec --no-startup-id export QT_AUTO_SCREEN_SCALE_FACTOR=0
 #exec --no-startup-id export QT_SCALE_FACTOR=1.5
-exec --no-startup-id export QT_FONT_DPI=144 
+exec --no-startup-id export QT_FONT_DPI=144
