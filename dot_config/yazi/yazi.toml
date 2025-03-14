@@ -9,15 +9,19 @@ sixel_fraction  = 15
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
+
+# ya pack -a Reledia/glow
+# ya pack -a Reledia/miller
+# ya pack -a Reledia/hexyl
 [plugin]
 prepend_previewers = [
   { mime = "text/csv", run = "miller"},
+  { name = "*.md", run = "glow" },
 ]
 
 append_previewers = [
   { name = "*", run = "hexyl" },
 ]
-
 
 [opener]
 pdff = [
