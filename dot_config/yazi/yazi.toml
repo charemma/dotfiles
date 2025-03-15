@@ -23,16 +23,23 @@ append_previewers = [
   { name = "*", run = "hexyl" },
 ]
 
+# define opener for movie files
 [opener]
 pdff = [
   { run = 'zathura "$@"', desc = "zathura", block = true, for = "linux" },
   { run = 'pdfarranger "$@"', desc = "PDF Arranger", block = true, for = "linux" },
 ]
+videof = [
+  { run = 'mpv "$@"', desc = "Mpv", block = false, for = "linux" },
+  { run = 'mplayer "$@"', desc = "Mplayer", block=false, for = "linux" },
+]
+
+
 
 [open]
 rules = [
   { mime = "application/pdf", use = [ "pdff", "reveal" ] },
-  { mime = "video/*", use = "play" },
+  { mime = "video/*", use = "videof" },
 ]
 
 
