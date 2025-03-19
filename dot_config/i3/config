@@ -241,13 +241,13 @@ set $base #303446
 set $mantle #292c3c
 set $crust #232634
 
-# target                title       bg      text    indicator   border
+# target                title       bg          text    indicator   border
 client.background       $base
-client.focused          $base   $surface0   $blue       $rosewater  $blue
-client.focused_inactive $base   $base   $text       $rosewater  $base
-client.unfocused        $base   $base   $subtext0       $rosewater  $base
-client.urgent           $peach      $base   $peach  $overlay0   $base
-client.placeholder      $overlay0   $base   $text   $overlay0   $base
+client.focused          $base       $surface0   $blue       $crust  $blue
+client.focused_inactive $base       $base       $text       $crust  $base
+client.unfocused        $base       $base       $subtext0   $crust  $base
+client.urgent           $peach      $base       $peach      $overlay0   $base
+client.placeholder      $overlay0   $base       $text       $overlay0   $base
 
 # Settings fuer normale Monitorposition
 # Standard-Gaps für alle Workspaces
