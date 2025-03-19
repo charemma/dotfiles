@@ -228,23 +228,26 @@ set $lavender #babbf1
 set $text #c6d0f5
 set $subtext1 #b5bfe2
 set $subtext0 #a5adce
+
 set $overlay2 #949cbb
 set $overlay1 #838ba7
 set $overlay0 #737994
+
 set $surface2 #626880
 set $surface1 #51576d
 set $surface0 #414559
+
 set $base #303446
 set $mantle #292c3c
 set $crust #232634
 
-# target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
+# target                title       bg      text    indicator   border
+client.background       $base
+client.focused          $base   $surface0   $blue       $rosewater  $blue
+client.focused_inactive $base   $base   $text       $rosewater  $base
+client.unfocused        $base   $base   $subtext0       $rosewater  $base
+client.urgent           $peach      $base   $peach  $overlay0   $base
+client.placeholder      $overlay0   $base   $text   $overlay0   $base
 
 # Settings fuer normale Monitorposition
 # Standard-Gaps für alle Workspaces
