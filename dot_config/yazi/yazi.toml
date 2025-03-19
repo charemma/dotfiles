@@ -8,6 +8,7 @@ image_quality   = 75
 sixel_fraction  = 15
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
+previewer = "kitty"
 
 
 # ya pack -a Reledia/glow
@@ -23,23 +24,27 @@ append_previewers = [
   { name = "*", run = "hexyl" },
 ]
 
-# define opener for movie files
 [opener]
 pdff = [
-  { run = 'zathura "$@"', desc = "zathura", block = true, for = "linux" },
-  { run = 'pdfarranger "$@"', desc = "PDF Arranger", block = true, for = "linux" },
+  { run = 'zathura "$@"', desc = "zathura", block = false, for = "linux" },
+  { run = 'pdfarranger "$@"', desc = "PDF Arranger", block = false, for = "linux" },
 ]
 videof = [
-  { run = 'mpv "$@"', desc = "Mpv", block = false, for = "linux" },
+  { run = 'mpv "$@"', desc = "Mpv", block = false, for = "unix" },
   { run = 'mplayer "$@"', desc = "Mplayer", block=false, for = "linux" },
 ]
-
+mdf = [
+   { run = 'kitty -e glow "$@"', desc = "Glow", block=false, for = "unix" },
+]
 
 
 [open]
 rules = [
   { mime = "application/pdf", use = [ "pdff", "reveal" ] },
   { mime = "video/*", use = "videof" },
+]
+prepend_rules = [
+  { name = "*.md", use = ["mdf", "edit", "reveal"] },
 ]
 
 
