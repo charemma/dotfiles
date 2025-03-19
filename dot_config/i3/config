@@ -249,6 +249,18 @@ client.unfocused        $base       $base       $subtext0   $crust  $base
 client.urgent           $peach      $base       $peach      $overlay0   $base
 client.placeholder      $overlay0   $base       $text       $overlay0   $base
 
+
+# Example - Hide border / title for specific windows / apps
+# for_window [class="Brave-browser"] border none
+# for_window [class="Google-chrome"] border none
+for_window [class=".*"] title_format ""
+
+
+default_border pixel 1
+default_floating_border pixel 1
+new_window pixel 1
+new_float pixel 1
+
 # Settings fuer normale Monitorposition
 # Standard-Gaps für alle Workspaces
 gaps inner 12
@@ -275,4 +287,4 @@ exec --no-startup-id export GDK_SCALE=1
 #exec --no-startup-id export GDK_DPI_SCALE=1.5
 #exec --no-startup-id export QT_AUTO_SCREEN_SCALE_FACTOR=0
 #exec --no-startup-id export QT_SCALE_FACTOR=1.5
-exec --no-startup-id export QT_FONT_DPI=144
+#exec --no-startup-id export QT_FONT_DPI=144
