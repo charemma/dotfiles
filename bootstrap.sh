@@ -15,7 +15,7 @@ fi
 # Use brew to install required packages (local only)
 echo "Installing packages via Homebrew..."
 brew install nvim chezmoi fzf ripgrep yazi tmux direnv lsd bat
-bat cache --build
+
 
 # Run chezmoi init to set up the dotfiles
 echo "Initializing chezmoi "
@@ -31,5 +31,8 @@ if ! grep -q "$ZSH_PATH" /etc/passwd; then
 fi
 echo "✔️ Default shell updated to zsh."
 
+
+bat cache --build
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "✔️ Bootstrap complete. Restart your shell if needed."
