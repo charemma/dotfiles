@@ -14,7 +14,7 @@ fi
 
 # Use brew to install required packages (local only)
 echo "Installing packages via Homebrew..."
-brew install nvim chezmoi fzf ripgrep yazi tmux direnv lsd bat
+brew install nvim chezmoi fzf ripgrep yazi tmux direnv lsd bat glow
 
 
 # Run chezmoi init to set up the dotfiles
