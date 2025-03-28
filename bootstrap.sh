@@ -33,6 +33,6 @@ echo "✔️ Default shell updated to zsh."
 
 
 bat cache --build
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+test -d $HOME/.oh-my-zsh || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "✔️ Bootstrap complete. Restart your shell if needed."
