@@ -250,6 +250,8 @@ client.urgent           $peach      $base       $peach      $overlay0   $base
 client.placeholder      $overlay0   $base       $text       $overlay0   $base
 
 
+for_window [class="vlc|Totem|mpv|MPlayer"] floating enable
+
 # Example - Hide border / title for specific windows / apps
 # for_window [class="Brave-browser"] border none
 # for_window [class="Google-chrome"] border none
