@@ -1,40 +1,35 @@
 {{ if eq .chezmoi.os "darwin" }}
 alias ffsearch="/Applications/Firefox.app/Contents/MacOS/firefox -new-tab --search"
 export CLIPBOARD_CLI=pbcopy
-export BREW_PATH=/opt/homebrew
+BREW_PATH=/opt/homebrew
 {{ else if eq .chezmoi.os "linux" }}
 export CLIPBOARD_CLI=xclip
-export BREW_PATH=/home/linuxbrew/.linuxbrew
+BREW_PATH=/home/linuxbrew/.linuxbrew
 {{ else }}
 # other OS
 {{ end }}
 
-export CLICOLOR=1
+# eval brew only if it is installed
+# check with which
+if [ -f "$(which brew)" ]; then
+    export BREW_PATH
+    eval "$(${BREW_PATH}/bin/brew shellenv)"
+fi
+
+# eval direnv only binary is installed via apt/brew
+if [ -f "$(which direnv)" ]; then
+  eval "$(direnv hook zsh)"
+fi
 
 if [ -d ~/.cargo/bin ]; then
   export PATH=~/.cargo/bin:$PATH
 fi
+
 if [ -d $HOME/.local/bin ]; then
   export PATH=$HOME/.local/bin:$PATH
 fi
 
-eval "$(${BREW_PATH}/bin/brew shellenv)"
-
-_direnv_hook() {
-  trap -- '' SIGINT
-  eval "$("${BREW_PATH}/bin/direnv" export zsh)"
-  trap - SIGINT
-}
-
-typeset -ag precmd_functions
-if (( ! ${precmd_functions[(I)_direnv_hook]} )); then
-  precmd_functions=(_direnv_hook $precmd_functions)
-fi
-typeset -ag chpwd_functions
-if (( ! ${chpwd_functions[(I)_direnv_hook]} )); then
-  chpwd_functions=(_direnv_hook $chpwd_functions)
-fi
-
+export CLICOLOR=1
 alias cw='echo CW$(curl -s http://worldtimeapi.org/api/timezone/Europe/Berlin | jq -M .week_number)'
 alias cat=bat
 alias t="todo.sh"
