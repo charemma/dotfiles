@@ -4,10 +4,12 @@
 
 # Install chezmoi and dotfiles
 export BINDIR=~/.local/bin
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --force --apply charemma
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply --skip-existing charemma
 
 # Install zsh and oh-my-zsh
 test -d $HOME/.oh-my-zsh || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Setup bat
-bat cache --build
+if [ -f $(which bat) ]; then
+    bat cache --build
+fi
