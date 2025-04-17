@@ -9,14 +9,13 @@ BREW_PATH=/home/linuxbrew/.linuxbrew
 # other OS
 {{ end }}
 
-# eval brew only if it is installed
-# check with which
+# Setup brew
 if [ -f "$(which brew)" ]; then
     export BREW_PATH
     eval "$(${BREW_PATH}/bin/brew shellenv)"
 fi
 
-# eval direnv only binary is installed via apt/brew
+# Setup direnv
 if [ -f "$(which direnv)" ]; then
   eval "$(direnv hook zsh)"
 fi
@@ -49,8 +48,14 @@ alias vim=nvim
 alias vi=nvim
 export EDITOR=nvim
 
-alias ls='lsd --icon=never'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree --icon=auto --depth=4'
+if [ -f "$(which lsd)" ]; then
+  alias ls='lsd --icon=always'
+  alias ll='lsd -l --icon=always'
+  alias la='lsd -a --icon=always'
+  alias lt='lsd --tree --icon=always --depth=4'
+else
+  # fallback to default ls
+  alias ls='ls --color=auto'
+  alias ll='ll -l'
+  alias la='ls -a'
+fi
