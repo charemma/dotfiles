@@ -1,25 +1,12 @@
 return {
-  {
-    'neanias/everforest-nvim',
-    version = false,
-    lazy = false,
-    priority = 1000, -- make sure to load this before all the other start plugins
-    -- Optional; default configuration will be used if setup isn't called.
-    config = function()
-      require('everforest').setup {
-        -- Your config here
-      }
-    end,
-  },
-  -- {
-  --   'craftzdog/solarized-osaka.nvim',
-  --   branch = 'osaka',
-  --   lazy = true,
-  --   priority = 1000,
-  --   opts = function()
-  --     return {
-  --       transparent = true,
-  --     }
-  --   end,
-  -- },
+  'catppuccin/nvim',
+  priority = 1000, -- Make sure to load this before all the other start plugins.
+  init = function()
+    -- Load the colorscheme here.
+    -- vim.cmd.colorscheme 'catppuccin-frappe'
+    vim.cmd.colorscheme 'catppuccin-latte'
+
+    -- You can configure highlights by doing something like:
+    vim.cmd.hi 'Comment gui=none'
+  end,
 }
