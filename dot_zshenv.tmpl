@@ -14,8 +14,8 @@ BREW_PATH=/home/linuxbrew/.linuxbrew
 
 # Setup brew
 if [ -d $BREW_PATH ]; then
-    export BREW_PATH
-    eval "$(${BREW_PATH}/bin/brew shellenv)"
+  export BREW_PATH
+  eval "$(${BREW_PATH}/bin/brew shellenv)"
 fi
 
 # Setup direnv
@@ -63,3 +63,8 @@ alias cw='echo CW$(curl -s http://worldtimeapi.org/api/timezone/Europe/Berlin | 
 
 alias vim=nvim
 alias vi=nvim
+
+alias kitty-dark="kitty @ set-colors -a ~/.config/kitty/dark-theme.auto.conf
+alias kitty-light="kitty @ set-colors -a ~/.config/kitty/light-theme.auto.conf"
+alias kitty-no-colors='kitty --config ~/.config/kitty/acme.conf zsh -i -c "source ~/.nocolors.zsh; exec zsh"'
+
