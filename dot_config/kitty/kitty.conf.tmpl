@@ -5,7 +5,10 @@ bold_italic_font auto
 {{ if eq .chezmoi.os "darwin" }}
 font_size        16.0
 {{ else }}
-font_size        11.0
+font_size        12.0
+# window_decoration none
+# hide_window_decorations yes
+linux_display_server x11
 {{ end }}
 scrollback_lines 5000
 allow_remote_control yes
