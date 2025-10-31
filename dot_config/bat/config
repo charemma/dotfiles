@@ -1,2 +1,4 @@
 -p
---theme="Catppuccin Frappe"
+--theme=auto
+--theme-dark="Catppuccin Frappe"
+--theme-light="Catppuccin Latte"
