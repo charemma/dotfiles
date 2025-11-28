@@ -1,0 +1,4 @@
+configuration {
+	terminal: "kitty";
+	ssh-command: "kitty -- kitty +kitten ssh {host}";
+}
