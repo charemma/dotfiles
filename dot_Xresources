@@ -15,40 +15,44 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 
-! Catppuccin Latte Theme Colors
+! Copyright (c) 2016-present Sven Greb <development@svengreb.de>
+! This source code is licensed under the MIT license found in the license file.
+#define nord0 #2E3440
+#define nord1 #3B4252
+#define nord2 #434C5E
+#define nord3 #4C566A
+#define nord4 #D8DEE9
+#define nord5 #E5E9F0
+#define nord6 #ECEFF4
+#define nord7 #8FBCBB
+#define nord8 #88C0D0
+#define nord9 #81A1C1
+#define nord10 #5E81AC
+#define nord11 #BF616A
+#define nord12 #D08770
+#define nord13 #EBCB8B
+#define nord14 #A3BE8C
+#define nord15 #B48EAD
 
-*background: #eff1f5
-*foreground: #4c4f69
-*cursorColor: #dc8a78
+*.foreground:   nord4
+*.background:   nord0
+*.cursorColor:  nord4
+*fading: 35
+*fadeColor: nord3
 
-! black
-*color0: #5c5f77
-*color8: #6c6f85
-
-! red
-*color1: #d20f39
-*color9: #d20f39
-
-! green
-*color2: #40a02b
-*color10: #40a02b
-
-! yellow
-*color3: #df8e1d
-*color11: #df8e1d
-
-! blue
-*color4: #1e66f5
-*color12: #1e66f5
-
-! magenta
-*color5: #ea76cb
-*color13: #ea76cb
-
-! cyan
-*color6: #179299
-*color14: #179299
-
-! white
-*color7: #acb0be
-*color15: #bcc0cc
+*.color0: nord1
+*.color1: nord11
+*.color2: nord14
+*.color3: nord13
+*.color4: nord9
+*.color5: nord15
+*.color6: nord8
+*.color7: nord5
+*.color8: nord3
+*.color9: nord11
+*.color10: nord14
+*.color11: nord13
+*.color12: nord9
+*.color13: nord15
+*.color14: nord7
+*.color15: nord6
