@@ -1,0 +1,60 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME=""
+
+plugins=(git ssh-agent zsh-fzf-history-search zsh-syntax-highlighting)
+
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source $ZSH/oh-my-zsh.sh
+
+# Aliases
+if command -v lsd &> /dev/null; then
+  alias ls='lsd --icon=always'
+  alias ll='lsd -l --icon=always'
+  alias la='lsd -a --icon=always'
+  alias lt='lsd --tree --icon=always --depth=4'
+else
+  alias ls='ls --color=auto'
+  alias ll='ls -l'
+  alias la='ls -a'
+fi
+
+command -v bat &> /dev/null && alias cat=bat
+command -v nvim &> /dev/null && alias vim=nvim && alias vi=nvim
+
+alias gitup='git pull --all ; git fetch ; git fetch -p ; git fetch --prune --prune-tags'
+alias cw='echo CW$(curl -s http://worldtimeapi.org/api/timezone/Europe/Berlin | jq -M .week_number)'
+
+if command -v kitty &> /dev/null; then
+  alias kitty-dark="kitty @ set-colors -a ~/.config/kitty/dark-theme.auto.conf"
+  alias kitty-light="kitty @ set-colors -a ~/.config/kitty/light-theme.auto.conf"
+  alias kitty-no-colors='kitty --config ~/.config/kitty/acme.conf zsh -i -c "source ~/.nocolors.zsh; exec zsh"'
+fi
+
+{{ if eq .chezmoi.os "darwin" }}
+alias ffsearch="/Applications/Firefox.app/Contents/MacOS/firefox -new-tab --search"
+{{ end }}
+
+# Completions
+function aftercolon() {
+  if compset -P 1 '*:'; then
+    _files "$expl[@]"
+  else
+    _files "$expl[@]"
+  fi
+}
+
+_just_completion() {
+    if [[ -f "justfile" ]]; then
+        local options
+        options="$(just --summary)"
+        reply=(${(s: :)options})
+    fi
+}
+
+autoload -Uz compinit
+compinit
+compdef aftercolon kas
+compctl -K _just_completion just
+
+eval "$(starship init zsh)"

@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "darwin" }}
+.Xresources
+.config/i3
+.config/i3status
+.config/polybar
+.config/rofi
+.fehbg
+{{ end }}
