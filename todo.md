@@ -20,9 +20,9 @@ Goal: Replace Homebrew with Nix/home-manager for user-level package management. 
 
 ## Phase 1: home-manager setup
 
-- [ ] Add home.nix template (chezmoi deploys to ~/.config/home-manager/home.nix)
-- [ ] Declare packages: bat, lsd, fzf, fd, starship, direnv, neovim, yazi, ripgrep, jq
-- [ ] Cross-platform: home.nix must work on both x86_64-linux and aarch64-darwin
+- [x] Add home.nix template (chezmoi deploys to ~/.config/home-manager/home.nix)
+- [x] Declare packages: bat, lsd, fzf, fd, starship, direnv, neovim, yazi, ripgrep, jq
+- [x] Cross-platform: home.nix must work on both x86_64-linux and aarch64-darwin
 - [ ] Add home-manager installation to charemma/setup ansible (new role)
 
 ## Phase 2: Replace Brew references
