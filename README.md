@@ -1,44 +1,40 @@
 # dotfiles
 
-My dotfiles, managed with [chezmoi](https://www.chezmoi.io/).
+Configuration files managed via [chezmoi](https://www.chezmoi.io/). Pure dotfiles, no package management. Works on any Linux, macOS, or inside containers without any dependencies beyond chezmoi itself.
+
+## Why chezmoi and not home-manager?
+
+home-manager could manage dotfiles too, but it requires a full Nix installation. That's too heavy for containers, devcontainers, or quick SSH sessions on remote hosts. chezmoi is a single binary with zero dependencies, making it the most portable option. The tools these configs belong to need to be installed separately depending on the system: via [nix-home](https://github.com/charemma/nix-home) (home-manager), apt, brew, or whatever the system provides.
+
+## What's included
+
+- zsh (oh-my-zsh, catppuccin theme)
+- neovim
+- tmux
+- kitty / alacritty
+- i3 / polybar / rofi
+- yazi
+- bat / lsd
+- X resources
 
 ## Setup
 
-On a fresh system, run:
+On any new system:
 
-```bash
+```
+chezmoi init charemma
+chezmoi apply
+```
+
+Or as a one-liner:
+
+```
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply charemma
 ```
 
-chezmoi takes care of everything: oh-my-zsh, plugins, bat themes, etc.
+In a container or devcontainer, the one-liner is all you need. No Nix, no package manager required for the configs themselves.
 
-## Packages with Nix / home-manager
+## Related
 
-Packages (bat, lsd, fzf, fd, starship, direnv, neovim, yazi, ripgrep, jq) are managed
-via home-manager. chezmoi deploys `home.nix` to `~/.config/home-manager/` and runs
-`home-manager switch` automatically whenever it changes.
-
-### Install Nix
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-```
-
-### Install home-manager
-
-```bash
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
-```
-
-After that, the next `chezmoi apply` picks up the home.nix automatically.
-
-## Structure
-
-- `dot_zshenv.tmpl` -- environment variables, PATH, fzf config
-- `dot_zshrc.tmpl` -- oh-my-zsh, plugins, aliases, completions, starship
-- `dot_config/` -- app configs (kitty, bat, lsd, starship, neovim, etc.)
-- `dot_config/home-manager/home.nix.tmpl` -- nix package declaration
-- `.chezmoiignore` -- exclude Linux-only configs (i3, polybar, rofi) on macOS
-- `.chezmoiexternal.toml` -- external git repos (zsh-syntax-highlighting)
+- [nix-home](https://github.com/charemma/nix-home) -- user-level packages via home-manager (NixOS, Debian, macOS)
+- [nixos-config](https://github.com/charemma/nixos-config) -- NixOS system configuration
