@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# home.nix hash: {{ include "dot_config/home-manager/home.nix.tmpl" | sha256sum }}
-if command -v home-manager &> /dev/null; then
-  home-manager switch
-else
-  echo "home-manager not found, skipping. Install nix + home-manager to manage packages."
-fi

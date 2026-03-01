@@ -4,3 +4,24 @@
     refreshPeriod = "168h"
     [".oh-my-zsh/custom/plugins/zsh-syntax-highlighting".pull]
         args = ["--ff-only"]
+
+[".config/yazi/plugins/glow.yazi"]
+    type = "git-repo"
+    url = "https://github.com/Reledia/glow.yazi.git"
+    refreshPeriod = "168h"
+    [".config/yazi/plugins/glow.yazi".pull]
+        args = ["--ff-only"]
+
+[".config/yazi/plugins/hexyl.yazi"]
+    type = "git-repo"
+    url = "https://github.com/Reledia/hexyl.yazi.git"
+    refreshPeriod = "168h"
+    [".config/yazi/plugins/hexyl.yazi".pull]
+        args = ["--ff-only"]
+
+[".config/yazi/plugins/miller.yazi"]
+    type = "git-repo"
+    url = "https://github.com/Reledia/miller.yazi.git"
+    refreshPeriod = "168h"
+    [".config/yazi/plugins/miller.yazi".pull]
+        args = ["--ff-only"]
