@@ -19,11 +19,11 @@ linemode = "size_and_mtime"
 [plugin]
 prepend_previewers = [
   { mime = "text/csv", run = "miller"},
-  { name = "*.md", run = "glow" },
+  { url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
 ]
 
 append_previewers = [
-  { name = "*", run = "hexyl" },
+  { url = "*", run = "hexyl" },
 ]
 
 [opener]
@@ -46,7 +46,7 @@ rules = [
   { mime = "video/*", use = "videof" },
 ]
 prepend_rules = [
-  { name = "*.md", use = ["open", "edit", "reveal"] },
+  { url = "*.md", use = ["open", "edit", "reveal"] },
 ]
 
 
