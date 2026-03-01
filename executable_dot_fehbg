@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/usr/bin/env sh
 feh --no-fehbg --bg-center '/home/charemma/Pictures/Wallpapers/background.jpg'
