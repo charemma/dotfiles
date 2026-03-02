@@ -31,7 +31,9 @@ if command -v kitty &> /dev/null; then
   alias kitty-no-colors='kitty --config ~/.config/kitty/acme.conf zsh -i -c "source ~/.nocolors.zsh; exec zsh"'
 fi
 
-{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "linux" }}
+alias open='xdg-open'
+{{ else if eq .chezmoi.os "darwin" }}
 alias ffsearch="/Applications/Firefox.app/Contents/MacOS/firefox -new-tab --search"
 {{ end }}
 
