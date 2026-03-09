@@ -29,6 +29,14 @@ if command -v kitty &> /dev/null; then
   alias kitty-dark="kitty @ set-colors -a ~/.config/kitty/dark-theme.auto.conf"
   alias kitty-light="kitty @ set-colors -a ~/.config/kitty/light-theme.auto.conf"
   alias kitty-no-colors='kitty --config ~/.config/kitty/acme.conf zsh -i -c "source ~/.nocolors.zsh; exec zsh"'
+  alias wt='kitty @ set-window-title'
+
+  _kitty_set_title() {
+    # Only needed outside tmux -- inside tmux, set-titles in tmux.conf handles it
+    [[ -n "$TMUX" ]] && return
+    [[ -n "$KITTY_WINDOW_ID" ]] && kitty @ set-window-title "${PWD/#$HOME/~}"
+  }
+  add-zsh-hook precmd _kitty_set_title
 fi
 
 {{ if eq .chezmoi.os "linux" }}
