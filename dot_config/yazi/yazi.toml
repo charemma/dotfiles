@@ -1,7 +1,7 @@
 [preview]
 tab_size        = 2
-max_width       = 1600
-max_height      = 1900
+max_width       = 4096
+max_height      = 4096
 cache_dir       = ""
 image_filter    = "triangle"
 image_quality   = 75
