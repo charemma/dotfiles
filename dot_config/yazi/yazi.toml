@@ -63,6 +63,10 @@ svgf = [
   { run = 'feh "$@"', desc = "feh (view)", block = false, for = "unix" },
   { run = 'inkscape "$@"', desc = "Inkscape (edit)", block = false, for = "unix" },
 ]
+imagef = [
+  { run = 'feh --auto-zoom --geometry 1280x800 "$@"', desc = "feh", block = false, for = "linux" },
+  { run = 'pinta "$@"', desc = "Pinta (edit)", block = false, for = "linux" },
+]
 open = [
    { run = 'kitty -e glow "$@"', desc = "Glow", block=false, for = "unix" },
 ]
@@ -84,6 +88,7 @@ rules = [
   { mime = "application/pdf", use = [ "pdff", "reveal" ] },
   { mime = "video/*", use = "videof" },
   { mime = "image/svg+xml", use = [ "svgf", "reveal" ] },
+  { mime = "image/*", use = [ "imagef", "reveal" ] },
 ]
 
 
