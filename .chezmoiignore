@@ -7,5 +7,6 @@ assets/**
 .config/i3status
 .config/polybar
 .config/rofi
+.config/zathura
 .fehbg
 {{ end }}
