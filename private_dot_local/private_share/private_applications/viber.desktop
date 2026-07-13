@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Viber
+GenericName=Instant Messenger
+Comment=Instant messaging and voice calls
+Exec=appimage-run /home/charemma/Applications/viber.AppImage %U
+Icon=viber
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;
+MimeType=x-scheme-handler/viber;
+StartupWMClass=Viber
