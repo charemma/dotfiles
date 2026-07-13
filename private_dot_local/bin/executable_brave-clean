@@ -1,0 +1,4 @@
+#!/bin/sh
+# Launch brave with a clean library env. Used as $BROWSER for AppImages
+# (viber) that otherwise poison child processes with their bundled libs.
+exec env -u LD_LIBRARY_PATH -u LD_PRELOAD /run/current-system/sw/bin/brave "$@"
