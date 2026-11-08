@@ -13,9 +13,7 @@ previewer = "kitty"
 [manager]
 linemode = "size_and_mtime"
 
-# ya pack -a Reledia/glow
-# ya pack -a Reledia/miller
-# ya pack -a Reledia/hexyl
+# Plugins are managed via package.toml -- run `ya pkg install` to set them up
 [plugin]
 prepend_preloaders = [
   { mime = "application/vnd.oasis.opendocument.*", run = "office" },
@@ -26,6 +24,9 @@ prepend_preloaders = [
   { url = "*.xls", run = "office" },
   { url = "*.docx", run = "office" },
   { url = "*.odt", run = "office" },
+  { url = "*.csv", run = "duckdb" },
+  { url = "*.tsv", run = "duckdb" },
+  { url = "*.parquet", run = "duckdb" },
 ]
 
 prepend_previewers = [
@@ -39,7 +40,9 @@ prepend_previewers = [
   { url = "*.odt", run = "office" },
   { url = "*.pptx", run = "office" },
   { url = "*.odp", run = "office" },
-  { mime = "text/csv", run = "miller"},
+  { url = "*.csv", run = "duckdb" },
+  { url = "*.tsv", run = "duckdb" },
+  { url = "*.parquet", run = "duckdb" },
   { url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
 ]
 
