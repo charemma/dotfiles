@@ -1,3 +1,6 @@
+assets
+assets/**
+
 {{ if eq .chezmoi.os "darwin" }}
 .Xresources
 .config/i3

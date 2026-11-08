@@ -2,6 +2,8 @@
 
 Configuration files managed via [chezmoi](https://www.chezmoi.io/). Pure dotfiles, no package management. Works on any Linux, macOS, or inside containers without any dependencies beyond chezmoi itself.
 
+![i3 desktop with kitty, nvim, yazi, kew, glow, Claude Code and mitmproxy](assets/i3-setup.png)
+
 ## Why chezmoi and not home-manager?
 
 home-manager could manage dotfiles too, but it requires a full Nix installation. That's too heavy for containers, devcontainers, or quick SSH sessions on remote hosts. chezmoi is a single binary with zero dependencies, making it the most portable option. The tools these configs belong to need to be installed separately depending on the system: via [nix-home](https://github.com/charemma/nix-home) (home-manager), apt, brew, or whatever the system provides.
